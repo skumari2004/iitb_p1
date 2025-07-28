@@ -24,50 +24,10 @@ body {
     color: var(--text-light);
     overflow-x: hidden;
     min-height: 100vh;
-    cursor: none;
     perspective: 1000px;
 }
 
-/* Enhanced Cursor Trail */
-.cursor-trail {
-    position: fixed;
-    width: 25px;
-    height: 25px;
-    background: radial-gradient(circle, var(--primary-neural), var(--secondary-neural));
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: screen;
-    animation: cursor-pulse 1.5s ease-in-out infinite alternate;
-    box-shadow: var(--glow-intensity) var(--primary-neural);
-}
-
-.cursor-particle {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    background: var(--primary-neural);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    animation: cursor-trail-fade 0.8s ease-out forwards;
-}
-
-@keyframes cursor-pulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    100% { transform: scale(1.3); opacity: 1; }
-}
-
-@keyframes cursor-trail-fade {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(0.3);
-        opacity: 0;
-    }
-}
+/* Enhanced Cursor Trail - Removed for pure CSS */
 
 /* Hero Section */
 .hero-section {
@@ -124,6 +84,18 @@ body {
     animation: synapse-pulse 4s ease-in-out infinite;
 }
 
+/* Individual Synapse Positions */
+.synapse-1 { top: 15%; left: 20%; animation-delay: 0s; }
+.synapse-2 { top: 25%; left: 75%; animation-delay: 0.5s; }
+.synapse-3 { top: 40%; left: 15%; animation-delay: 1s; }
+.synapse-4 { top: 55%; left: 85%; animation-delay: 1.5s; }
+.synapse-5 { top: 70%; left: 25%; animation-delay: 2s; }
+.synapse-6 { top: 35%; left: 60%; animation-delay: 2.5s; }
+.synapse-7 { top: 80%; left: 70%; animation-delay: 3s; }
+.synapse-8 { top: 10%; left: 50%; animation-delay: 3.5s; }
+.synapse-9 { top: 60%; left: 40%; animation-delay: 4s; }
+.synapse-10 { top: 90%; left: 90%; animation-delay: 4.5s; }
+
 .synapse-connection {
     position: absolute;
     height: 2px;
@@ -131,6 +103,55 @@ body {
     animation: neural-signal 3s linear infinite;
     opacity: 0.6;
     transform-origin: left center;
+}
+
+/* Neural Connections with calculated positions */
+.connection-1 {
+    top: 15%;
+    left: 20%;
+    width: 200px;
+    transform: rotate(45deg);
+    animation-delay: 0s;
+}
+
+.connection-2 {
+    top: 25%;
+    left: 75%;
+    width: 150px;
+    transform: rotate(-30deg);
+    animation-delay: 1s;
+}
+
+.connection-3 {
+    top: 40%;
+    left: 15%;
+    width: 180px;
+    transform: rotate(60deg);
+    animation-delay: 2s;
+}
+
+.connection-4 {
+    top: 55%;
+    left: 85%;
+    width: 120px;
+    transform: rotate(-45deg);
+    animation-delay: 3s;
+}
+
+.connection-5 {
+    top: 70%;
+    left: 25%;
+    width: 160px;
+    transform: rotate(20deg);
+    animation-delay: 4s;
+}
+
+.connection-6 {
+    top: 35%;
+    left: 60%;
+    width: 140px;
+    transform: rotate(-60deg);
+    animation-delay: 5s;
 }
 
 @keyframes synapse-pulse {
@@ -169,11 +190,11 @@ body {
     opacity: 0.4;
 }
 
-.brain-wave:nth-child(1) { top: 20%; }
-.brain-wave:nth-child(2) { top: 40%; }
-.brain-wave:nth-child(3) { top: 60%; }
-.brain-wave:nth-child(4) { top: 80%; }
-.brain-wave:nth-child(5) { top: 90%; }
+.wave-1 { top: 20%; animation-delay: 0s; }
+.wave-2 { top: 40%; animation-delay: 1s; }
+.wave-3 { top: 60%; animation-delay: 2s; }
+.wave-4 { top: 80%; animation-delay: 3s; }
+.wave-5 { top: 90%; animation-delay: 4s; }
 
 @keyframes brain-wave-flow {
     0%, 100% {
@@ -196,6 +217,28 @@ body {
     box-shadow: 0 0 10px currentColor;
 }
 
+/* Individual Particle Positioning and Colors */
+.particle-1 { left: 5%; background: #00d4ff; animation-delay: 0s; }
+.particle-2 { left: 15%; background: #ff006e; animation-delay: 0.5s; }
+.particle-3 { left: 25%; background: #8338ec; animation-delay: 1s; }
+.particle-4 { left: 35%; background: #3a86ff; animation-delay: 1.5s; }
+.particle-5 { left: 45%; background: #06ffa5; animation-delay: 2s; }
+.particle-6 { left: 55%; background: #00d4ff; animation-delay: 2.5s; }
+.particle-7 { left: 65%; background: #ff006e; animation-delay: 3s; }
+.particle-8 { left: 75%; background: #8338ec; animation-delay: 3.5s; }
+.particle-9 { left: 85%; background: #3a86ff; animation-delay: 4s; }
+.particle-10 { left: 95%; background: #06ffa5; animation-delay: 4.5s; }
+.particle-11 { left: 10%; background: #00d4ff; animation-delay: 5s; }
+.particle-12 { left: 20%; background: #ff006e; animation-delay: 5.5s; }
+.particle-13 { left: 30%; background: #8338ec; animation-delay: 6s; }
+.particle-14 { left: 40%; background: #3a86ff; animation-delay: 6.5s; }
+.particle-15 { left: 50%; background: #06ffa5; animation-delay: 7s; }
+.particle-16 { left: 60%; background: #00d4ff; animation-delay: 7.5s; }
+.particle-17 { left: 70%; background: #ff006e; animation-delay: 8s; }
+.particle-18 { left: 80%; background: #8338ec; animation-delay: 8.5s; }
+.particle-19 { left: 90%; background: #3a86ff; animation-delay: 9s; }
+.particle-20 { left: 1%; background: #06ffa5; animation-delay: 9.5s; }
+
 @keyframes neural-particle-float {
     0% {
         transform: translateY(100vh) translateX(0) rotate(0deg) scale(0);
@@ -213,9 +256,7 @@ body {
         transform: translateY(-10vh) translateX(200px) rotate(360deg) scale(0);
         opacity: 0;
     }
-}
-
-/* Floating Tech Elements */
+}/* Floating Tech Elements */
 .floating-elements {
     position: absolute;
     top: 0;
@@ -864,7 +905,7 @@ body {
     pointer-events: none;
 }
 
-.hologram-1, .hologram-2, .hologram-3 {
+.hologram {
     position: absolute;
     width: 150px;
     height: 150px;
