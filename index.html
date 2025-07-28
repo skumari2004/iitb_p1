@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroLink Dynamics | Brain-Computer Interface Revolution</title>
+    <meta name="description" content="NeuroLink Dynamics - Revolutionary brain-computer interface technology that amplifies human cognitive abilities. The future of human evolution starts here.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <main class="hero-section">
+        <!-- Neural Background Animation -->
+        <div class="neural-background">
+            <div class="synapses-container" id="synapsesContainer"></div>
+            <div class="brain-waves" id="brainWaves"></div>
+            <div class="neural-grid"></div>
+            <div class="neural-particles" id="neuralParticles"></div>
+        </div>
+
+        <!-- Floating Tech Elements -->
+        <div class="floating-elements">
+            <div class="tech-orb orb-1"></div>
+            <div class="tech-orb orb-2"></div>
+            <div class="tech-orb orb-3"></div>
+            <div class="data-stream stream-1"></div>
+            <div class="data-stream stream-2"></div>
+            <div class="data-stream stream-3"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="hero-content">
+            <div class="brand-logo">
+                <div class="logo-core"></div>
+                <div class="logo-rings">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-3"></div>
+                </div>
+                <div class="logo-pulse"></div>
+            </div>
+
+            <h1 class="hero-title">
+                <span class="title-word word-1">NEURO</span>
+                <span class="title-word word-2">LINK</span>
+                <span class="title-accent">DYNAMICS</span>
+            </h1>
+
+            <p class="hero-tagline">Where Human Intelligence Meets Artificial Brilliance</p>
+
+            <div class="hero-description">
+                <p>Revolutionary brain-computer interface technology that amplifies human cognitive abilities by seamlessly connecting your mind to advanced AI systems. Experience the future of human evolution.</p>
+            </div>
+
+            <div class="cta-section">
+                <a href="#revolution" class="cta-primary">
+                    <span class="btn-text">Join the Revolution</span>
+                    <div class="btn-energy"></div>
+                    <div class="btn-glow"></div>
+                </a>
+                <a href="#demo" class="cta-secondary">
+                    <span class="btn-text">Watch Neural Demo</span>
+                    <div class="btn-pulse"></div>
+                </a>
+            </div>
+
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="15000">0</div>
+                    <div class="stat-label">Beta Users</div>
+                    <div class="stat-bar"></div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="99.7">0</div>
+                    <div class="stat-label">Accuracy %</div>
+                    <div class="stat-bar"></div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="847">0</div>
+                    <div class="stat-label">Patents Filed</div>
+                    <div class="stat-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-text">Discover the Future</div>
+            <div class="scroll-arrow">
+                <div class="arrow-line"></div>
+                <div class="arrow-head"></div>
+            </div>
+            <div class="scroll-glow"></div>
+        </div>
+
+        <!-- Interactive Elements -->
+        <div class="interactive-elements">
+            <div class="hologram-1"></div>
+            <div class="hologram-2"></div>
+            <div class="hologram-3"></div>
+        </div>
+    </main>
+
+    <script>
+        // Enhanced Cursor Trail
+        let cursorTrail = [];
+        const maxTrailLength = 20;
+
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.getElementById('cursorTrail');
+
+            // Add new position to trail
+            cursorTrail.push({ x: e.clientX, y: e.clientY, time: Date.now() });
+
+            // Remove old positions
+            cursorTrail = cursorTrail.filter(pos => Date.now() - pos.time < 1000);
+
+            // Update cursor position
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+
+            // Create trail effect
+            createCursorTrail(e.clientX, e.clientY);
+        });
+
+        function createCursorTrail(x, y) {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-particle';
+            trail.style.left = x + 'px';
+            trail.style.top = y + 'px';
+            document.body.appendChild(trail);
+
+            setTimeout(() => {
+                trail.remove();
+            }, 800);
+        }
+
+        // Create Synapses Animation
+        function createSynapses() {
+            const container = document.getElementById('synapsesContainer');
+            const synapseCount = 30;
+
+            for (let i = 0; i < synapseCount; i++) {
+                const synapse = document.createElement('div');
+                synapse.className = 'synapse';
+
+                synapse.style.left = Math.random() * 100 + '%';
+                synapse.style.top = Math.random() * 100 + '%';
+                synapse.style.animationDelay = Math.random() * 5 + 's';
+                synapse.style.animationDuration = (Math.random() * 3 + 4) + 's';
+
+                container.appendChild(synapse);
+
+                // Create connections between nearby synapses
+                setTimeout(() => createSynapseConnections(synapse, container), 100);
+            }
+        }
+
+        function createSynapseConnections(synapse, container) {
+            const synapses = container.querySelectorAll('.synapse');
+            const synapseRect = synapse.getBoundingClientRect();
+
+            synapses.forEach(otherSynapse => {
+                if (synapse !== otherSynapse) {
+                    const otherRect = otherSynapse.getBoundingClientRect();
+                    const distance = Math.sqrt(
+                        Math.pow(synapseRect.left - otherRect.left, 2) +
+                        Math.pow(synapseRect.top - otherRect.top, 2)
+                    );
+
+                    if (distance < 200 && Math.random() > 0.7) {
+                        const connection = document.createElement('div');
+                        connection.className = 'synapse-connection';
+
+                        const angle = Math.atan2(
+                            otherRect.top - synapseRect.top,
+                            otherRect.left - synapseRect.left
+                        ) * 180 / Math.PI;
+
+                        connection.style.left = (synapseRect.left / window.innerWidth * 100) + '%';
+                        connection.style.top = (synapseRect.top / window.innerHeight * 100) + '%';
+                        connection.style.width = distance + 'px';
+                        connection.style.transform = `rotate(${angle}deg)`;
+                        connection.style.animationDelay = Math.random() * 2 + 's';
+
+                        container.appendChild(connection);
+                    }
+                }
+            });
+        }
+
+        // Create Brain Waves
+        function createBrainWaves() {
+            const container = document.getElementById('brainWaves');
+            for (let i = 0; i < 5; i++) {
+                const wave = document.createElement('div');
+                wave.className = 'brain-wave';
+                wave.style.animationDelay = i * 0.5 + 's';
+                container.appendChild(wave);
+            }
+        }
+
+        // Create Neural Particles
+        function createNeuralParticles() {
+            const container = document.getElementById('neuralParticles');
+            const particleCount = 80;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'neural-particle';
+
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (Math.random() * 8 + 12) + 's';
+
+                // Random neural colors
+                const colors = ['#00d4ff', '#ff006e', '#8338ec', '#3a86ff', '#06ffa5'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+                container.appendChild(particle);
+            }
+        }
+
+        // Animate Statistics
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+
+            statNumbers.forEach(stat => {
+                const target = parseFloat(stat.dataset.target);
+                const isDecimal = target % 1 !== 0;
+                let current = 0;
+                const increment = target / 100;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+
+                    stat.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString();
+                }, 30);
+            });
+        }
+
+        // 3D Tilt Effect
+        document.addEventListener('mousemove', (e) => {
+            const hero = document.querySelector('.hero-content');
+            const rect = hero.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            const rotateX = (y / rect.height) * 5;
+            const rotateY = (x / rect.width) * 5;
+
+            hero.style.transform = `perspective(1000px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        // Enhanced Button Effects
+        document.querySelectorAll('.cta-primary, .cta-secondary').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.transform = 'translateY(-8px) scale(1.05)';
+
+                // Create energy ripple effect
+                const ripple = document.createElement('div');
+                ripple.className = 'button-ripple';
+                btn.appendChild(ripple);
+
+                setTimeout(() => ripple.remove(), 600);
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createSynapses();
+            createBrainWaves();
+            createNeuralParticles();
+
+            setTimeout(animateStats, 2000);
+        });
+
+        // Reduce motion for accessibility
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.style.setProperty('--animation-scale', '0');
+        }
+    </script>
+</body>
+</html>
